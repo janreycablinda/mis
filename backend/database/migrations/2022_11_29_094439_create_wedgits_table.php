@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDashboardsTable extends Migration
+class CreateWedgitsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,14 @@ class CreateDashboardsTable extends Migration
      */
     public function up()
     {
-        Schema::create('dashboards', function (Blueprint $table) {
+        Schema::create('wedgits', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('sub_title');
+            $table->integer('value');
+            $table->string('color');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -26,6 +31,6 @@ class CreateDashboardsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dashboards');
+        Schema::dropIfExists('wedgits');
     }
 }

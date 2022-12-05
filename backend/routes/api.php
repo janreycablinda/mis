@@ -31,3 +31,15 @@ Route::group([
     Route::get('me', 'App\Http\Controllers\AuthController@me');
 
 });
+
+Route::group([
+
+    'middleware' => 'api',
+    'prefix' => 'resources'
+
+], function ($router) {
+
+    Route::resource('wedgits', 'App\Http\Controllers\WedgitController');
+    Route::resource('roles', 'App\Http\Controllers\RoleController');
+
+});
